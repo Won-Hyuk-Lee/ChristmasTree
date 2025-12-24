@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄 Christmas Tree Animation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mountains+of+Christmas:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="stars-bg"></div>
+
+    <div class="title">
+        <span class="title-line">✨ Merry Christmas ✨</span>
+        <span class="subtitle">& Happy New Year 2025</span>
+    </div>
+
+    <div class="tree"></div>
+
+    <div class="ground"></div>
+
+    <script>
+        const tree = document.querySelector('.tree');
+        const nStars = 250;
+
+        for (let i = 0; i < nStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'ornament';
+            star.style.setProperty('--i', i);
+            star.style.setProperty('--n', nStars);
+
+            const colorType = Math.floor(Math.random() * 5);
+            star.style.setProperty('--color-type', colorType);
+
+            const sizeVar = 0.5 + Math.random() * 1;
+            star.style.setProperty('--size', sizeVar);
+
+            tree.appendChild(star);
+        }
+
+        for (let i = 0; i < 80; i++) {
+            const light = document.createElement('div');
+            light.className = 'garland-light';
+            light.style.setProperty('--i', i);
+            light.style.setProperty('--n', 80);
+            light.style.setProperty('--light-color', i % 4);
+            tree.appendChild(light);
+        }
+
+        const body = document.body;
+        for (let i = 0; i < 100; i++) {
+            const snow = document.createElement('div');
+            snow.className = 'snow';
+            snow.style.left = Math.random() * 100 + 'vw';
+            snow.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            snow.style.animationDelay = Math.random() * 5 + 's';
+            snow.style.setProperty('--size', 2 + Math.random() * 6);
+            body.appendChild(snow);
+        }
+
+        const starsBg = document.querySelector('.stars-bg');
+        for (let i = 0; i < 150; i++) {
+            const bgStar = document.createElement('div');
+            bgStar.className = 'bg-star';
+            bgStar.style.left = Math.random() * 100 + '%';
+            bgStar.style.top = Math.random() * 100 + '%';
+            bgStar.style.animationDelay = Math.random() * 3 + 's';
+            bgStar.style.setProperty('--size', 1 + Math.random() * 2);
+            starsBg.appendChild(bgStar);
+        }
+    </script>
+</body>
+
+</html>
